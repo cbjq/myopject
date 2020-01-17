@@ -1,0 +1,89 @@
+
+
+<link rel="stylesheet" href="<?php echo $conf->confs['css_dir']; ?>news.css" />
+<link rel="stylesheet" href="<?php echo $conf->confs['css_dir']; ?>mypage.css" />
+    <section class="banner">
+       <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+             <img src="<?php echo $conf->confs['img_dir'];?>/public/banner2.jpg" />
+          </div>
+        </div>
+      </div>       
+    </section>
+	<section class="news">
+		<div class="container">
+			<div class="row">
+				<div class="location col-md-11 col-md-offset-1 col-md-11 col-md-offset-1">
+					<p>当前位置：<span>资讯中心</span></p>
+				</div>
+			</div>
+		</div>
+	</section>
+   <section class="title">
+      <div class="container titled">
+        <h1>我们的资讯中心</h1>
+        <h3>NEWS CENTER</h3>
+      </div>
+    </section>
+    <section class="news_list">
+      <div class="container">
+        <div class="row col-xs-12 col-sm-11 col-md-11 col-lg-11 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 news">
+          <ul>
+            <?php foreach($info as $key => $item){ 
+              
+              if($key % 2 == 0){
+              ?>
+            <li class="img_left first">
+               <img src="<?php echo $conf->confs['img_dir'];?>/news_center/news_one.png" alt="" class="img col-md-6 col-sm-12 col-xs-12">
+              <div class="content col-md-6 col-sm-12 col-xs-12">
+                <h2>01-09</h2>
+                <h3>2016</h3>
+                <h4><?php echo $item['info_title'];?></h4>
+                <p><?php echo $item['info_content'];?></p>
+                <a href="#" class="active">MORE</a>
+              </div>
+            </li>
+            <div class="clearfix"></div>
+            <?php }else{ ?>
+            <li class="img_right">
+               <img src="<?php echo $conf->confs['img_dir'];?>/news_center/news_two.png" alt="" class="img col-md-6 col-sm-12 col-xs-12">
+              <div class="content col-md-6 col-sm-12 col-xs-12">
+                <h2>01-09</h2>
+                <h3>2016</h3>
+                <h4><?php echo $item['info_title'];?></h4>
+                <p><?php echo $item['info_content'];?></p>
+                <a href="#">MORE</a>
+              </div>
+            </li>
+            
+            <div class="clearfix"></div>
+            <?php }} ?>
+          </ul>
+        </div>  
+        <div class="clearfix"></div>
+        <div class="kong64"></div>
+        <div class="row col-md-6 col-sm-8 col-xs-8 mypage">
+          <?php echo $page;?>
+          <!-- <ul>
+            <li class="prev"><</li>
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li><a href="">4</a></li>
+            <li><a href="">...</a></li>
+            <li><a href="">10</a></li>
+            <li class="next">></li>
+          </ul> -->
+        </div>
+        <div class="kong75"></div>
+      </div>
+    </section>
+    
+
+    <script src="<?php echo $conf->confs['js_dir'];?>jquery-1.11.1.min.js"></script>
+    <script>
+      $('.news a').mouseover(function(){
+        $(this).addClass('active').parent().parent().siblings('li').find('a').removeClass('active');
+      })
+    </script>
